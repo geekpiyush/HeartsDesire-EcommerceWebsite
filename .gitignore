@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/HeartsDesireLuxury.UI/appsettings.json
+/HeartsDesireLuxury.UI/appsettings.Development.json
