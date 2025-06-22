@@ -1,0 +1,280 @@
+﻿@model IEnumerable<ProductResponse>
+@{
+    ViewData["Title"] = "Hearts Desire Luxury - The Fragrance of India";
+}
+<link href="~/css/HomeStyle.css" rel="stylesheet" asp-append-version="true"/>
+<!-- 📽️ Video Banner -->
+ <section class="video-banner"> 
+     <video id="banner-video" autoplay loop muted playsinline class="background-video"> 
+         <source id="video-source" src="~/Videos/bannermodelvideo.mp4" type="video/mp4"> 
+         Your browser does not support the video tag.
+     </video>
+ </section>
+
+<section class="products-section">
+    <div class="container-fluid">
+        <div class="section-header"> 
+            <h2><span class="active-tab">BESTSELLERS</span></h2>
+        </div>
+
+        <div class="products-grid">
+            @foreach (var product in Model)
+            {
+                <div class="product-card">
+                    <div class="badge bestseller">BESTSELLER</div>
+                    <div class="badge discount">
+                        @if (product.ProductSalePrice.HasValue)
+                        {
+                            <div class="badge discount">
+                                @{
+                                    var discount = (int)((1 - (product.ProductSalePrice.Value / product.ProductPrice)) * 100);
+                                    @($"{discount}% OFF")
+                                }
+                            </div>
+                        }
+                    </div>
+                    <img src="@product.MainImagePath" alt="@product.ProductName" />
+                    <div class="product-info">
+                        <p class="category">@product.Category</p>
+                        <h3>@product.ProductName</h3>
+                        <p class="rating">⭐ 4.7 | (1.2K Reviews)</p>
+                        <p class="price">₹@product.ProductSalePrice <span class="old-price">₹@product.ProductPrice</span></p>
+                        <a asp-action="ProductByProductID" asp-controller="Product" asp-route-ProductID="@product.ProductID"><button class="add-to-cart">ADD TO CART</button></a>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="view-all">
+            <button><a asp-action="AllProducts" asp-controller="Product">VIEW ALL</a></button>
+        </div>
+    </div>
+</section>
+
+@* <div class="premium-perfume-showcase">
+     <div class="perfume-flex-container">
+         <!-- Left: Image -->
+         <div class="perfume-image-side">
+             <img src="/images/luxuryperfume.png" alt="Luxury Perfume">
+         </div>
+             <div class="perfume-content-side"> 
+                 <h2>Unveil the Art of Fragrance</h2>
+                 <p>
+                     Step into a world of elegance and refinement. Our signature scent embodies timeless sophistication,
+                     handcrafted with rare ingredients for the modern connoisseur.
+                 </p> 
+                 <a href="#" class="perfume-shop-btn">Shop Now</a>
+             </div>
+ </div>
+ </div> *@
+<a href="https://example.com" class="banner-link" target="_blank">
+    <img src="~/images/banner/new banner HD.png" alt="Banner Image image">
+</a>
+
+<section class="category-section">
+  <div class="container-fluid">
+    <h2 class="section-title">Shop by Category</h2>
+    <div class="category-flex">
+      
+      <!-- Luxury Perfume -->
+      <div class="category-card">
+        <img src="/images/luxuey-cat.png" alt="Luxury Perfume" class="category-image">
+        <h3 class="category-title">Luxury Perfume</h3>
+      </div>
+
+      <!-- Man Perfume -->
+      <div class="category-card">
+        <img src="/images/man-cat.png" alt="Man Perfume" class="category-image">
+        <h3 class="category-title">Man Perfume</h3>
+      </div>
+
+      <!-- Woman Perfume -->
+      <div class="category-card">
+        <img src="/images/woman-cat.png" alt="Woman Perfume" class="category-image">
+        <h3 class="category-title">Woman Perfume</h3>
+      </div>
+
+      <!-- Skin Care -->
+      <div class="category-card">
+        <img src="/images/skincare.png" alt="Skin Care" class="category-image">
+        <h3 class="category-title">Skin Care</h3>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+@* Two Banner Container *@
+<div class="banner-image-section">
+    <div class="banner-img">
+           <a href="shop-women.html">
+            <img src="~/images/banner1.png" loading="lazy">
+            </a>
+    </div>
+    <div class="banner-img">
+            <a href="shop-men.html">
+            <img src="~/images/banner2.png" loading="lazy">
+             </a>
+    </div>
+</div>
+
+@* Combo Offer Code *@
+<div class="combo-offers-section">
+    <div class="container">
+        <h2 class="combo-heading">Combo Offers</h2>
+        <div class="combo-grid">
+
+            <div class="combo-card">
+                <div class="combo-image">
+                    <img src="~/images/luxuey-cat.png" alt="Combo 1">
+                </div>
+                <p class="combo-title">Elegant Duo Pack</p>
+            </div>
+
+            <div class="combo-card">
+                <div class="combo-image">
+                    <img src="~/images/luxuey-cat.png" alt="Combo 2">
+                </div>
+                <p class="combo-title">Royal Couple Fragrance</p>
+            </div>
+
+            <div class="combo-card">
+                <div class="combo-image">
+                    <img src="~/images/luxuey-cat.png" alt="Combo 3">
+                </div>
+                <p class="combo-title">Luxury Gift Set</p>
+            </div>
+
+            <div class="combo-card">
+                <div class="combo-image">
+                    <img src="~/images/luxuey-cat.png" alt="Combo 3">
+                </div>
+                <p class="combo-title">Luxury Gift Set</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="luxury-why-heart">
+    <div class="container">
+        <h2 class="section-title">Why Heart's Desire Luxury</h2>
+        <div class="luxury-features">
+
+            <div class="luxury-feature-box">
+                <span class="icon">🌸</span>
+                <h3>Finest Ingredients</h3>
+                <p>Experience fragrances crafted with rare, exotic essential oils for a scent like no other.</p>
+            </div>
+
+            <div class="luxury-feature-box">
+                <span class="icon">⏳</span>
+                <h3>Timeless Longevity</h3>
+                <p>Designed to leave a lasting impression, all day and into the night.</p>
+            </div>
+
+            <div class="luxury-feature-box">
+                <span class="icon">🌿</span>
+                <h3>Sustainable Beauty</h3>
+                <p>Eco-conscious, cruelty-free practices — because true luxury respects nature.</p>
+            </div>
+
+            <div class="luxury-feature-box">
+                <span class="icon">🎁</span>
+                <h3>Artful Packaging</h3>
+                <p>Every bottle is a masterpiece, elegantly wrapped for an unforgettable unboxing moment.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@* Meet Founder Code *@
+<section class="founder-section">
+    <div class="container">
+        <div class="founder-content">
+
+            <!-- Left Side: Text -->
+            <div class="founder-text">
+                <h2>
+                    Meet Our Founders – Rishi & Juhi Singh
+                </h2>
+                <p>
+                    At Heart's Desire Luxury, we believe in the power of passion, dedication, and family support. Founded by Juhi Singh, with her husband Rishi Singh by her side, the brand is built on a deep commitment to luxury, quality, and elegance. Juhi’s vision was to create fragrances that are more than just scents—they are experiences that evoke emotions and memories. Rishi, ever supportive, has been a pillar of strength, ensuring that Juhi’s dream of building a luxurious perfume brand becomes a reality.
+
+                    With Rishi’s unwavering support and Juhi’s keen eye for detail, Heart's Desire Luxury is set to redefine the world of perfumes. Their collaboration is a perfect blend of creativity and business acumen, and together, they are dedicated to making the brand grow and thrive in the luxury perfume industry.
+
+                    As the brand continues to flourish, Rishi and Juhi remain focused on creating the finest perfumes that embody elegance, sophistication, and a deep love for their craft.
+                </p>
+                <div class="founder-signature">
+                    <img src="~/images/founder signature.png" alt="Founder Signature">
+                </div>
+                <a href="#" class="founder-button">Know More</a>
+            </div>
+
+            <!-- Right Side: Image -->
+            <div class="founder-image-frame">
+                <img src="~/images/founder.png" alt="Founder Photo">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<script>
+        let index = 0;
+    const slides = document.querySelectorAll(".carousel-img");
+    const track = document.querySelector(".carousel-track");
+    const dots = document.querySelectorAll(".dot");
+
+    // ✅ Fix Track Width
+    track.style.width = `${slides.length * 100}vw`;
+
+    function updateCarousel() {
+        track.style.transform = `translateX(${-index * 100}vw)`;
+        dots.forEach(dot => dot.classList.remove("active"));
+        dots[index].classList.add("active");
+    }
+
+    // Move to next or previous slide
+    function moveSlide(step) {
+        index = (index + step + slides.length) % slides.length;
+        updateCarousel();
+    }
+
+    // Jump to a specific slide
+    function jumpToSlide(n) {
+        index = n;
+        updateCarousel();
+    }
+
+    // Auto Slide Every 4 Seconds
+    setInterval(() => moveSlide(1), 4000);
+
+
+       document.addEventListener("DOMContentLoaded", function () {
+        const videoSources = [
+            "/Videos/bannermodelvideo.mp4",
+            "/Videos/video2.mp4",
+            "/Videos/video3.mp4"
+            
+        ];
+
+        let videoIndex = 0;
+        const videoElement = document.getElementById("banner-video");
+        const videoSourceElement = document.getElementById("video-source");
+
+        function changeVideo() {
+            videoIndex = (videoIndex + 1) % videoSources.length;
+            videoSourceElement.src = videoSources[videoIndex];
+            videoElement.load();  // Reload the new video source
+            videoElement.play();
+        }
+
+       
+        videoElement.addEventListener("ended", changeVideo);
+
+        setInterval(changeVideo, 20000);
+    });
+</script>

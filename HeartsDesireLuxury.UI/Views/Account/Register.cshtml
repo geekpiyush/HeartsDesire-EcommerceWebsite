@@ -1,0 +1,141 @@
+﻿@model ServiceContracts.DTO.CustomerRegister
+
+@{
+    ViewData["Title"] = "Create Account";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+    .register-form {
+        background: white;
+        padding: 30px 40px;
+        border-radius: 15px;
+        box-shadow: 0 0 25px rgba(0,0,0,0.1);
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .register-form h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .form-floating {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .form-floating input,
+    .form-floating select {
+        width: 100%;
+        padding: 15px 15px 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        outline: none;
+    }
+
+    .form-floating label {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 0.9rem;
+        color: #777;
+        transition: all 0.3s ease;
+        background: white;
+        padding: 0 5px;
+        pointer-events: none;
+    }
+
+    .form-floating input:focus + label,
+    .form-floating input:not(:placeholder-shown) + label,
+    .form-floating select:focus + label {
+        top: -10px;
+        font-size: 0.75rem;
+        color: #0072ff;
+    }
+
+    .text-danger {
+        font-size: 0.8rem;
+        color: red;
+    }
+
+    .submit-btn {
+        background: #0072ff;
+        color: white;
+        border: none;
+        padding: 12px;
+        width: 100%;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+        background: #005fcc;
+    }
+
+    .form-note {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 0.9rem;
+    }
+
+</style>
+
+<div class="register-form">
+    <h2>Create Account</h2>
+    <form asp-action="Register" method="post">
+        <div class="form-floating">
+            <input asp-for="CustomerName" class="form-control" placeholder="Name" />
+            <label asp-for="CustomerName"></label>
+            <span asp-validation-for="CustomerName" class="text-danger"></span>
+        </div>
+
+        <div class="form-floating">
+            <input asp-for="Email" class="form-control" placeholder="Email" />
+            <label asp-for="Email"></label>
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-floating">
+            <input asp-for="Phone" class="form-control" placeholder="Phone" />
+            <label asp-for="Phone"></label>
+            <span asp-validation-for="Phone" class="text-danger"></span>
+        </div>
+
+        <div class="form-floating">
+            <input asp-for="Password" class="form-control" placeholder="Password" />
+            <label asp-for="Password"></label>
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="form-floating">
+            <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm Password" />
+            <label asp-for="ConfirmPassword"></label>
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+
+        <div class="form-floating">
+            <select asp-for="UserType" class="form-control">
+                <option value="0">User</option>
+                <option value="1">Admin</option>
+            </select>
+            <label asp-for="UserType"></label>
+            <span asp-validation-for="UserType" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="submit-btn">Create Account</button>
+        <p class="form-note">Already have an account? <a href="/Account/Login" style="color:#0072ff;">Login</a></p>
+    </form>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.21.0/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>

@@ -1,0 +1,151 @@
+﻿@using Entities.IdentityEntity
+@using Microsoft.AspNetCore.Identity
+
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    var user = await UserManager.GetUserAsync(User);
+    var name = user?.CustomerName ?? user?.UserName;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HeartsDesireLuxury | Perfumes</title>
+    <link rel="icon" type="image/x-icon" href="/images/heartslogo.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@400;600&family=Cinzel:wght@400;700&family=Libre+Baskerville&family=Forum&display=swap" rel="stylesheet">
+    <link href="~/css/site.css?v=@DateTime.Now.Ticks" rel="stylesheet" />
+
+</head>
+
+<body>
+    <header class="navbar" id="navbar">
+        <div class="hamburger" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="navbar-left">
+            <a asp-action="AllProducts" asp-controller="Product">Shop</a>
+            <a asp-controller="Product" asp-action="Women">Woman</a>
+            <a asp-controller="Product" asp-action="Men">Men</a>
+            <a asp-controller="Product" asp-action="Luxury">Luxury</a>
+            <a href="#">Skin Care</a>
+            <a href="#">About Us</a>
+            
+        </div>
+
+        <div class="logo">Heart's Desire</div>
+
+        <div class="navbar-right">
+            @if(User.Identity.IsAuthenticated)
+            {
+                <a href="#"><i class="fas fa-search"></i></a>
+               <i class="fas fa-user"></i>
+                <span>@name</span>
+                <a asp-action="OrderHistory" asp-controller="Orders">Order History</a>
+                <a asp-action="logout" asp-controller="Account">Log out</a>
+
+            }
+            else
+            {
+                <a href="#"><i class="fas fa-search"></i></a>
+
+                <a asp-controller="Account" asp-action="Register">Register</a>
+                <a asp-controller="Account" asp-action="Login">Login</a>
+            }
+        </div>
+
+        <div id="mobileMenu" class="mobile-menu">
+            <a asp-action="AllProducts" asp-controller="Product">Shop</a>
+            <a asp-controller="Product" asp-action="Women">Woman</a>
+            <a asp-controller="Product" asp-action="Men">Men</a>
+            <a asp-controller="Product" asp-action="Luxury">Luxury</a>
+            <a href="#">Skin Care</a>
+            <a href="#">About Us</a>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="luxury-footer">
+        <div class="footer-container">
+
+            <!-- Sparkle Layer -->
+            <div class="sparkle-layer"></div>
+
+            <div class="footer-brand">
+                <h2>Heart's Desire Luxury</h2>
+                <p class="slogan">Where Elegance Meets Essence</p>
+            </div>
+
+            <div class="newsletter">
+                <h3>Subscribe to Our Newsletter</h3>
+                <form action="#">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Vision & Values</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="https://heartsdesireluxury.com/women/">Women</a></li>
+                        <li><a href="#">Men</a></li>
+                        <li><a href="#">Luxury</a></li>
+                        <li><a href="#">Skin Care</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Heart's Desire Luxury. All Rights Reserved.</p>
+            </div>
+
+            <!-- Perfume Bottle -->
+            <div class="perfume-icon">
+                <img src="~/images/luxuey-cat-png.png" alt="Perfume Bottle">
+            </div>
+        </div>
+    </footer>
+ 
+
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="~/js/site.js"></script>
+</body>
+</html>

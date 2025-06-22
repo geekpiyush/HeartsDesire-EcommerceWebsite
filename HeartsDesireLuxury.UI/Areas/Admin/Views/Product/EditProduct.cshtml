@@ -1,0 +1,59 @@
+@model ProductUpdateRequest
+@{
+    ViewBag.Title = "Update Product";
+}
+@* <link href="@Url.Content("~/Areas/Admin/css/addproductstyle.css")" rel="stylesheet" type="text/css" /> *@
+<link href="~/css/AdminCSS/addproductstyle.css" rel="stylesheet" />
+<div class="form-container">
+    @* <h2>Add Product</h2> *@
+    <form asp-controller="Product" asp-area="Admin" asp-action="EditProduct" method="post" enctype="multipart/form-data">
+
+        
+        <input type="hidden" asp-for="ProductID" />
+
+        <label asp-for="ProductPrice">Product Price ($)</label>
+        <input type="number" asp-for="ProductPrice" step="0.01">
+        <span asp-validation-for="ProductPrice"></span>
+
+        <label asp-for="ProductSalePrice">Product Sale Price ($)</label>
+        <input type="number" asp-for="ProductSalePrice" step="0.01">
+        <span asp-validation-for="ProductSalePrice"></span>
+
+        <label asp-for="Stock">Stock</label>
+        <input type="number" asp-for="Stock">
+        <span asp-validation-for="Stock"></span>
+
+        <label asp-for="SkuID">SKU ID</label>
+        <input type="text" asp-for="SkuID">
+        <span asp-validation-for="SkuID"></span>
+
+   
+
+        <label for="mainImage">Product Main Image</label>
+        <input type="file" id="mainImage" name="mainImage" accept="image/*" required>
+
+        <label for="referenceImages">Product Reference Images</label>
+        <input type="file" id="referenceImages" name="referenceImages[]" accept="image/*" multiple>
+
+        <button type="submit">Update</button>
+        <div asp-validation-summary="All" style="color:red;">
+
+        </div>
+
+        @if (ViewBag.errors != null)
+        {
+            <div class="" style="color:red;">
+                @foreach (string erros in ViewBag.errors)
+                {
+                    <li>@erros</li>
+                }
+            </div>
+        }
+    </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.21.0/jquery.validate.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>

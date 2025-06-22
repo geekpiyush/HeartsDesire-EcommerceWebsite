@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ProductCategoryResponse>
+@{
+    ViewBag.Title = "Categories";
+}
+<link rel="stylesheet" href="~/css/AdminCSS/CategoryStyle.css">
+<h1>Categories</h1>
+<button><a asp-controller="Categories" asp-area="Admin" asp-action="AddCategories"> Add Category</a></button>
+<table>
+    <caption>Product Categories</caption>
+    <thead>
+        <tr>
+            <th>Product Category ID</th>
+            <th>Product Category Title</th>
+            <th>Edit Product Category</th>
+            <th>Delete Product Category</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(ProductCategoryResponse productCategory in Model)
+        {
+            <tr>
+                <td>@productCategory.CategoryID</td>
+                <td>@productCategory.CategoryName</td>
+                <td><button class="edit">Edit</button></td>
+                <td><button>Delete</button></td>
+            </tr>
+        }
+           
+            
+        </tbody>
+    </table>
