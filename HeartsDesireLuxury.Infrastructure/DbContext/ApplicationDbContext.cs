@@ -1,4 +1,5 @@
 ﻿using Entities.IdentityEntity;
+using Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -26,14 +27,17 @@ namespace Entities.DB
 
             modelBuilder.Entity<Products>().ToTable("Products");
             modelBuilder.Entity<ProductCategories>().ToTable("ProductCategories");
+            modelBuilder.Entity<Inventory>().ToTable("Inventory");
 
 
-            //modelBuilder.Entity<Products>().HasData(new Entities.Products() { ProductID = 1001, ProductName = "TestProduct", Description = "Test Description", ProductPrice = 999, ProductSalePrice = 699, Stock = 100, SkuID = "Test100ML", ShortDescription = "TestProduct Short Description" });
+            //modelBuilder.Entity<List<Inventory>>().HasData(new Entities.() { ProductID = 1001, ProductName = "TestProduct", Description = "Test Description", ProductPrice = 999, ProductSalePrice = 699, Stock = 100, SkuID = "Test100ML", ShortDescription = "TestProduct Short Description" });
+
+            modelBuilder.Entity<Inventory>().HasData(new Entities.Inventory() { BarcodeNumber = 546987152, ProductName = "testInventory", Stock = 1500, Price = 270 });
 
 
-          
+
         }
-         
-       
+
+
     }  
 }

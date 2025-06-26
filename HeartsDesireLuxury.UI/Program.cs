@@ -1,5 +1,7 @@
 using Entities.DB;
 using Entities.IdentityEntity;
+using HeartsDesireLuxury.Core.Domain.RepositoryContracts;
+using HeartsDesireLuxury.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -17,6 +19,7 @@ builder.Services.AddControllersWithViews();
 //IOC Container
 builder.Services.AddScoped<IProductCategoryRepository, ProductCategoryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IInventoryRepository,InventoryRepository>();
 
 builder.Services.AddScoped<IProductGetterServices, ProductGetterService>();
 builder.Services.AddScoped<IProductCategoryAdderService, ProductCategoryAdderServices>();
@@ -24,6 +27,7 @@ builder.Services.AddScoped<IProductCategoryGetterService, ProductCategoryGetterS
 builder.Services.AddScoped<IProductDeleteServices, ProductDeleteService>();
 builder.Services.AddScoped<IProductAdderServices, ProductAdderService>();
 builder.Services.AddScoped<IProductUpdateServices, ProductUpdateService>();
+builder.Services.AddScoped<IInventoryAdderService,InventoryAdderService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {

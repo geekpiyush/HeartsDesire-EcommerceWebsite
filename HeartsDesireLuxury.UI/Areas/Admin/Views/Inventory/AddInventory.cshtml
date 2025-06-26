@@ -1,0 +1,46 @@
+﻿@model HeartsDesireLuxury.Core.DTO.InventoryAddRequest
+
+@{
+    ViewData["Title"] = "Add Inventory";
+}
+
+<h2>Add Inventory</h2>
+
+<form asp-controller="Inventory" asp-action="AddInventory" asp-area="Admin" method="post">
+
+    <div>
+        <label asp-for="BarcodeNumber"></label><br />
+        <input asp-for="BarcodeNumber" />
+        <span asp-validation-for="BarcodeNumber" style="color: red;"></span>
+    </div>
+
+    <br />
+
+    <div>
+        <label asp-for="ProductName"></label><br />
+        <input asp-for="ProductName" />
+        <span asp-validation-for="ProductName" style="color: red;"></span>
+    </div>
+
+    <br />
+
+    <div>
+        <label asp-for="Stock"></label><br />
+        <input asp-for="Stock" />
+        <span asp-validation-for="Stock" style="color: red;"></span>
+    </div>
+
+    <br />
+
+    <div>
+        <label asp-for="Price"></label><br />
+        <input asp-for="Price" />
+        <span asp-validation-for="Price" style="color: red;"></span>
+    </div>
+
+    <br />
+
+    <button type="submit">Add Inventory</button>
+</form>
+
+
