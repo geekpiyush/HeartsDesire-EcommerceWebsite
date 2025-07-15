@@ -6,11 +6,11 @@
 <div class="form-container">
     <form asp-controller="Categories" asp-area="Admin" asp-action="AddCategories" method="POST" enctype="multipart/form-data">
 
-        <div asp-validation-summary="All" style="color:red;"></div>
+        <div asp-validation-summary="All" style="color:green;"></div>
 
         <label asp-for="CategoryName">Category Name</label>
         <input type="text" asp-for="CategoryName" />
-        <span asp-validation-for="CategoryName" style="color:red;"></span>
+        <span asp-validation-for="CategoryName" style="color:green;"></span>
         
         <button type="submit">Submit</button>
     </form>

@@ -36,21 +36,31 @@
             font-size: 14px;
         }
 
-        button {
-            padding: 5px 10px;
-            border: none;
-            background-color: #f44336;
-            color: white;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-            button.edit {
-                background-color: #4CAF50;
-            }
+button.category-btn a {
+    padding: 5px 10px;
+    border: none;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+}
+           button.category-btn{
+               border:none;
+           }
+         button.edit {
+           background-color: #4CAF50;
+           border: none;
+           color:#fff;
+           }
 
             button:hover {
                 opacity: 0.8;
+            }
+            button.delete-btn {
+                background-color:red;
+                border:none;
+                color:#fff;
             }
 
         caption {
