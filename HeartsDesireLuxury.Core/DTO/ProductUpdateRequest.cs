@@ -21,7 +21,7 @@ namespace ServiceContracts.DTO
         public int? CategoryID { get; set; }
         public Products ToProduct()
         {
-            return new Products() { ProductID = ProductID, ProductPrice = ProductPrice, ProductSalePrice = ProductSalePrice, Stock = Stock, SkuID = SkuID,CategoryID = CategoryID};
+            return new Products() { ProductID = ProductID, ProductPrice = ProductPrice, ProductSalePrice = ProductSalePrice, Stock = Stock, SkuID = SkuID,CategoryID = CategoryID,MainImagePath = MainImagePath};
         }
     }
 }

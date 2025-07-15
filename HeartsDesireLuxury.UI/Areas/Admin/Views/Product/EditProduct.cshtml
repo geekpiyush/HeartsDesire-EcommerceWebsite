@@ -30,7 +30,7 @@
    
 
         <label for="mainImage">Product Main Image</label>
-        <input type="file" id="mainImage" name="mainImage" accept="image/*" required>
+        <input asp-for="MainImagePath" type="file"  accept="image/*" required>
 
         <label for="referenceImages">Product Reference Images</label>
         <input type="file" id="referenceImages" name="referenceImages[]" accept="image/*" multiple>

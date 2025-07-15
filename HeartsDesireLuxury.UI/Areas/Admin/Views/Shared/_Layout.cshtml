@@ -27,7 +27,7 @@
             width: 20%;
             box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
         }
-
+         
         .right-container {
             width: 80%;
         }
@@ -45,11 +45,11 @@
         .left-container ul li a {
             color: black;
             text-decoration: none;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             display: block;
         }
         .left-container ul li a i{
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             padding: 0 10px;
         }
         .navbar{
@@ -72,6 +72,11 @@
             font-size:1.2rem;
         }
 
+        #admin-home-btn button{
+            border:none;
+
+        }
+
     </style>
 </head>
 
@@ -85,9 +90,13 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <div id="admin-home-btn">
+                @* <button asp-controller="Home" asp-action="index">Home</button> *@
+                <button asp-controller="Home" asp-action="index">Home</button>
+            </div>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                </ul>
+                </ul>.
             </div>
         </div>
     </nav>
@@ -109,8 +118,8 @@
                     <li><a asp-controller="Orders" asp-action="Orders" asp-area="admin"><i class="fa-solid fa-cart-shopping"></i>Orders</a></li>
                     <li><a asp-controller="Customers" asp-action="Customers" asp-area="admin"><i class="fa-solid fa-users"></i>Customers</a></li>
                     <li><a asp-controller="User" asp-action="User" asp-area="admin"><i class="fa-solid fa-user"></i>User</a></li>
-
                     <li><a asp-controller="Inventory" asp-action="Inventory" asp-area="admin"><i class="fa-solid fa-user"></i>Inventory</a></li>
+                    <li><a asp-controller="Home" asp-action="Index" asp-area=""><i class="fa-solid fa-user"></i>Home</a></li>
                 </ul>
             </div>
             <div class="right-container">

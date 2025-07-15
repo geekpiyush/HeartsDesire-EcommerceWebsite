@@ -4,7 +4,7 @@
 }
 <link href="~/css/HomeStyle.css" rel="stylesheet" asp-append-version="true"/>
 <!-- 📽️ Video Banner -->
- <section class="video-banner"> 
+<section class="video-banner"> 
      <video id="banner-video" autoplay loop muted playsinline class="background-video"> 
          <source id="video-source" src="~/Videos/bannermodelvideo.mp4" type="video/mp4"> 
          Your browser does not support the video tag.
@@ -190,7 +190,7 @@
 </div>
 
 @* Meet Founder Code *@
-<section class="founder-section">
+@*<section class="founder-section">
     <div class="container">
         <div class="founder-content">
 
@@ -219,7 +219,7 @@
 
         </div>
     </div>
-</section>
+</section>*@
 
 
 <script>
@@ -242,7 +242,7 @@
         index = (index + step + slides.length) % slides.length;
         updateCarousel();
     }
-
+0
     // Jump to a specific slide
     function jumpToSlide(n) {
         index = n;
