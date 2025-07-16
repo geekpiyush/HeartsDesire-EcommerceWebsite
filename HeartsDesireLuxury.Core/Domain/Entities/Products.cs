@@ -13,7 +13,7 @@ namespace Entities
         [Key]
         public int? ProductID { get; set; }
 
-        [StringLength(100)]
+        [StringLength(255)]
         public string? ProductName { get; set; }
         public double ProductPrice { get; set; }
         public double? ProductSalePrice { get; set; }
