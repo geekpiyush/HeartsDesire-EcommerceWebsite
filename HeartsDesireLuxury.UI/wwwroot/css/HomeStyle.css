@@ -222,8 +222,11 @@ h1, h2, h3, h4 {
     text-align: center;
     margin-top: 30px;
 }
-
-    .view-all button {
+.view-all button{
+    border:none;
+}
+    .view-all button a {
+        text-decoration: none;
         padding: 10px 20px;
         border: 1px solid black;
         background: white;
@@ -235,7 +238,7 @@ h1, h2, h3, h4 {
         width: 250px !important;
     }
 
-        .view-all button:hover {
+        .view-all button a:hover {
             background: black;
             color: white;
         }
