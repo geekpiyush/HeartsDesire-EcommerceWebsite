@@ -16,10 +16,11 @@
 body {
     margin-bottom: 60px;
     font-family: 'Poppins', sans-serif;
-    height: 2000px; /* Just to enable scrolling */
+    height: 100vh; /* Just to enable scrolling */
     font-family: 'Cormorant Garamond', serif;
     background-color: #fafafa;
     color: #333;
+
 }
 * {
     margin: 0;
@@ -139,6 +140,7 @@ body {
     position: relative;
     overflow: hidden;
     display:block;
+    margin-top:30px;
 }
 
 .footer-container {
