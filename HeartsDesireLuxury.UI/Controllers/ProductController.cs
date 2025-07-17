@@ -32,7 +32,7 @@ namespace HeartsDesirePerfume.Controllers
         }
         public async Task<IActionResult> Luxury()
         {
-            List<ProductResponse> products = await _productServices.GetProductsByCategoryID(4);
+            List<ProductResponse> products = await _productServices.GetProductsByCategoryID(3);
             return View(products);
         }
         public async Task<IActionResult> Skincare()

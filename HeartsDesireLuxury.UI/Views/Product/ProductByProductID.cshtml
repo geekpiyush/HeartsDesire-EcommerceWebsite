@@ -35,23 +35,25 @@
             </div>
 
             <div class="desc">
-                @if(Model.CategoryID == 4)
+                @if (Model.CategoryID == 3 && Model.ProductID == 11)
+                {
+                    <h3>Bold Citrus. Spiced Heart. Creamy Wood Finish.</h3>
+                    <p>A distinctive men's fragrance that opens with a zesty citrus kick, evolves into a warm herbal-spicy heart, and settles into a smooth, woody base. Perfect for those who value subtle power and refined masculinity.</p>
+                }
+                @if(Model.CategoryID == 3)
                 {
                     <h3>Oriental Woody Floral, Spicy Accents</h3>
-
-                    <p>Charmed by saffron oil & cardamon oil at the top, floral & slighty sweet and musky at its heart deep woody & sweet-balsamic base.</p>
+                    <p>A sophisticated unisex fragrance that blends floral, woody, and musky notes for a balanced scent that suits every personality. Long-lasting and luxurious, crafted for those who leave a lasting impression.</p>
                 }
-
                 @if(Model.CategoryID == 2)
                 {
                     <h3>Citrus Floral with Spicy and Woody Accents</h3>
-                    <p>Charmed by the fresh and slightly spicy opening at the top, slightly peppery & feminine core at its heart sensual and long-lasting base.</p>
+                    <p>A floral-fruity perfume with a sparkling top note, a feminine heart, and a sensual base. This long-lasting fragrance stays with you for up to 18 hours, perfect for both everyday charm and evening elegance.</p>
                 }
                 @if(Model.CategoryID == 1)
                 {
                     <h3>Woody Spicy</h3>
-
-                    <p>Charmed by the fresh citrus brust with a touch of floral brightness at the top, herbal-spicy accord adding sophistication and warmth at its heart smooth creamy woodiness that grounds the fragrance beautifully base.</p>
+                    <p>A refined fragrance that blends spicy freshness with deep woody notes and a warm masculine base. Designed for the modern man, this Eau de Parfum offers up to 18 hours of lasting freshness—perfect for daily wear or special occasions.</p>
                 }
             
         </div>
@@ -61,6 +63,102 @@
 
 <div class="accordion-container">
     <div class="accordion-inner-container">
+        @if (Model.CategoryID == 1 && Model.ProductID == 8)
+        {
+            <button class="accordion">Hearts Desire Luxury – Eau de Parfum for Men (100 ml)</button>
+            <div class="panel">
+                <h1>Unleash Confidence. Leave a Mark.</h1>
+            <p>Step into timeless elegance with Hearts Desire Luxury, a 100 ml Eau de Parfum for Men crafted for those who lead with presence and power. Designed for the modern gentleman, this fragrance blends fresh, spicy top notes with rich woody heart tones and a warm, masculine base—offering a bold, long-lasting impression.</p>
+            <ul>
+                <li>Top Notes: A fresh, spicy burst that energizes instantly</li>
+                <li>Heart Notes: Deep woody accords that define strength and confidence</li>
+                <li>Base Notes: Warm, grounding tones that linger with masculine charm</li>
+            </ul>
+            <p>Perfect for every day or special occasions, this scent is a true reflection of refinement and self-assurance.</p>
+            <h2>Why Choose Hearts Desire Luxury?</h2>
+            <ul>
+                <li>18-hour longevity – Stay fresh from day to night</li>
+                <li>Premium feel, budget-friendly price</li>
+                <li>Sleek 100 ml bottle – A stylish addition to your collection</li>
+                <li>Perfect gifting option – For birthdays, anniversaries & celebrations</li>
+            </ul>
+            <p>
+                Hearts Desire Luxury isn’t just a perfume—it’s an experience that follows you wherever you go.</p>
+        </div>
+
+        }
+        @if (Model.CategoryID == 1 && Model.ProductID == 11)
+        {
+            <button class="accordion">Shadow Borne – Eau de Parfum for Men (100 ml))</button>
+            <div class="panel">
+                <h1>Silent Power. Bold Presence.</h1>
+                <p>Enter a world of understated strength with Shadow Borne by Hearts Desire Luxury—a 100 ml Eau de Parfum designed for men who carry quiet confidence. This fragrance begins with a zesty citrus opening, elevated by a hint of floral brightness. As it settles, the herbal-spicy heart adds depth and warmth, leading to a smooth, creamy woody base that grounds the scent in timeless masculinity.</p>
+                <ul>
+                    <li>Top Notes: A fresh burst of citrus blended with subtle floral notes for an energizing start</li>
+                    <li>Heart Notes: Warm and herbal with a spicy undertone, adding elegance and depth</li>
+                    <li>Base Notes: A creamy, woody finish that lingers with soft sophistication</li>
+                </ul>
+                <p>Perfect for daytime wear, office presence, or relaxed evening confidence.</p>
+                <h2>Key Highlights</h2>
+                <ul>
+                    <li>For Men – Designed to reflect strength, warmth, and style</li>
+                    <li>Fragrance Family: Woody with citrus and spice accents</li>
+                    <li>Entry-Segment Luxury – High quality at a value-friendly price</li>
+                    <li>Long-Lasting Formula – Enjoy all-day freshness</li>
+                    <li>100 ml Bottle – Sleek, elegant, and travel-ready</li>
+                </ul>
+                <p>Hearts Desire Luxury is not just a fragrance—it’s a reflection of your presence.</p>
+            </div>
+        }
+
+        @if (Model.CategoryID == 2)
+        {
+            <button class="accordion">Hearts Desire Luxury – Eau de Parfum for Women (100 ml)</button>
+            <div class="panel">
+                <h1>Where Grace Meets Allure.</h1>
+                <p>Experience pure elegance with Hearts Desire Luxury Women’s Perfume, crafted for women who embrace their strength with style. This luxurious Eau de Parfum blends fruity freshness with floral heart notes and a sensual earthy base, creating a fragrance that's both captivating and confident.</p>
+                <ul>
+                    <li>Top Notes: Fresh, sparkling, and slightly spicy – a vibrant introduction</li>
+                    <li>Heart Notes: A soft floral core with a peppery twist – feminine and elegant</li>
+                    <li>Base Notes: Earthy, musky, and long-lasting – for a sensual finish that lingers</li>
+                </ul>
+                <p>Whether it’s a bright morning or a romantic evening, this perfume ensures you remain fresh, enchanting, and unforgettable.</p>
+                <h2>Key Highlights</h2>
+                <ul>
+                    <li>Designed for Women – Elegant, floral-fresh scent</li>
+                    <li>Long-Lasting – Up to 18 hours of wear</li>
+                    <li>Perfect for All Occasions – Office, date night, events</li>
+                    <li>Budget-Friendly Luxury – Affordable yet premium</li>
+                    <li>Generous 100 ml Bottle – Stylish and travel-ready</li>
+                </ul>
+                <p>Hearts Desire Luxury is not just a fragrance—it’s a reflection of your presence.</p>
+            </div>
+        }
+
+        @if (Model.CategoryID == 3)
+        {
+            <button class="accordion">Hearts Desire Luxury – Unisex Eau de Parfum (100 ml)</button>
+            <div class="panel">
+                <h1>Where Elegance Meets Individuality.</h1>
+                <p>Discover the essence of luxury with Hearts Desire Luxury Unisex Eau de Parfum—a 100 ml fragrance designed for every soul that seeks style beyond gender. Crafted with a harmonious blend of floral top notes, woody heart tones, and a warm, musky base, this perfume celebrates balance, grace, and confidence.</p>
+                <ul>
+                    <li>Top Notes: A fresh floral spark that awakens the senses</li>
+                    <li>Heart Notes: Woody and smooth, offering depth and warmth</li>
+                    <li>Base Notes: A soft yet powerful musky trail that lingers beautifully</li>
+                </ul>
+                <p>Perfect for both him and her, this Eau de Parfum is a signature scent for any occasion—day or night.</p>
+                <h2>Why You'll Love It</h2>
+                <ul>
+                    <li>Gender-neutral sophistication</li>
+                    <li>Long-lasting formula – Up to 18 hours of wear</li>
+                    <li>Minimalist luxury in every drop</li>
+                    <li>Perfect gifting option – Stylish and versatile</li>
+                </ul>
+                <p>Hearts Desire Luxury is not just a fragrance—it’s a reflection of your presence.</p>
+            </div>
+        }
+
+      
         <button class="accordion">KEY BENEFITS</button>
         <div class="panel">
         <p>
