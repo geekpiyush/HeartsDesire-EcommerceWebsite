@@ -19,7 +19,13 @@
             <h1 class="product-title">@Model.ProductName</h1>
             <div class="price">₹@Model.ProductSalePrice <span class="old-price">₹@Model.ProductPrice</span></div>
             <div class="rating">⭐ 4.6 | 1071 Reviews</div>
-            <button class="buy-btn">Buy Now</button>
+
+            <form method="get" asp-controller="Orders" asp-action="PlaceOrders">
+                <input type="hidden" name="productID" value="@Model.ProductID" />
+                <input type="hidden" id="selectedQty" name="quantity" value="1" />
+                <button type="submit" class="buy-btn">Buy Now</button>
+            </form>
+
 
             <div class="quantity">
                 <button onclick="changeQty(-1)">−</button>
@@ -181,13 +187,14 @@
       document.getElementById('mainImg').src = src;
     }
 
-    function changeQty(change) {
-      const qtyInput = document.getElementById("qty");
-      let value = parseInt(qtyInput.value);
-      value = isNaN(value) ? 1 : value + change;
-      if (value >= 1) {
-        qtyInput.value = value;
-      }
+          function changeQty(change) {
+        const qtyInput = document.getElementById("qty");
+        let value = parseInt(qtyInput.value);
+        value = isNaN(value) ? 1 : value + change;
+        if (value >= 1) {
+            qtyInput.value = value;
+            document.getElementById("selectedQty").value = value;
+        }
     }
 
     const accordions = document.querySelectorAll(".accordion");
@@ -206,4 +213,7 @@
         }
       });
     });
+
+ 
 </script>
+

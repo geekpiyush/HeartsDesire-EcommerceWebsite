@@ -172,8 +172,8 @@ namespace Entities.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CustomerID")
-                        .HasColumnType("int");
+                    b.Property<Guid>("CustomerID")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("CustomerName")
                         .IsRequired()

@@ -1,0 +1,38 @@
+﻿@model List<Entities.Orders>
+
+@{
+    ViewBag.Title = "Your Order History";
+}
+
+<h2>Your Order History</h2>
+
+@if (Model == null || !Model.Any())
+{
+    <p>You haven’t placed any orders yet.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.Product?.ProductName</td>
+                    <td>@order.Quantity</td>
+                    <td>₹@order.Product?.ProductSalePrice</td>
+                    <td>₹@(order.Quantity* order.Product?.ProductSalePrice)</td>
+                    <td>@order.OrderDate.ToString("dd MMM yyyy")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
