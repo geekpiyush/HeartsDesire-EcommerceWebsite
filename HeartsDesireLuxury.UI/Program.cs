@@ -2,6 +2,7 @@ using Entities.DB;
 using Entities.IdentityEntity;
 using HeartsDesireLuxury.Core.Domain.RepositoryContracts;
 using HeartsDesireLuxury.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -58,6 +59,14 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LoginPath = "/Account/Login";
 });
 
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.AccessDeniedPath = "/Account/AccessDenied";
+    });
+
+builder.Services.AddAuthorization();
 var app = builder.Build();
 
 //builder.Services.AddDbContext<ApplicationDbContext>(optins=>
