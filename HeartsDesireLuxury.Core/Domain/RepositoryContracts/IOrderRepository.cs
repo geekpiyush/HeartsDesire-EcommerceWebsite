@@ -10,7 +10,7 @@ namespace HeartsDesireLuxury.Core.Domain.RepositoryContracts
     public interface IOrderRepository
     {
         Task InsertOrder(Orders orders);
-        Task<List<Orders>> GetOrdersByCustomerId(int customerID);
+        Task<List<Orders>> GetOrdersByCustomerId(Guid customerID);
 
     }
 }

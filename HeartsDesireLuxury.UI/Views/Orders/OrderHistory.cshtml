@@ -4,6 +4,23 @@
     ViewBag.Title = "Your Order History";
 }
 
+
+<style>
+    .Container
+    {
+        display:flex;
+        justify-content:center;
+        align-content:center;
+
+        margin-top:50px;
+    }
+
+    table
+    {
+        border:1px solid black;
+    }
+</style>
+
 <h2>Your Order History</h2>
 
 @if (Model == null || !Model.Any())
@@ -12,27 +29,30 @@
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Total</th>
-                <th>Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var order in Model)
-            {
+    <div class="Container">
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>@order.Product?.ProductName</td>
-                    <td>@order.Quantity</td>
-                    <td>₹@order.Product?.ProductSalePrice</td>
-                    <td>₹@(order.Quantity* order.Product?.ProductSalePrice)</td>
-                    <td>@order.OrderDate.ToString("dd MMM yyyy")</td>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                    <th>Date</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+                {
+                    <tr>
+                        <td>@order.Product?.ProductName</td>
+                        <td>@order.Quantity</td>
+                        <td>₹@order.Product?.ProductSalePrice</td>
+                        <td>₹@(order.Quantity* order.Product?.ProductSalePrice)</td>
+                        <td>@order.OrderDate.ToString("dd MMM yyyy")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    
 }

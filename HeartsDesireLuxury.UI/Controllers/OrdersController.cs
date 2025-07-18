@@ -39,14 +39,14 @@ namespace HeartsDesireLuxury.Controllers
                 return View("Orders", product);
             }
 
-            //if (User.Identity.IsAuthenticated)
-            //{
-            //    string? userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
-            //    if (int.TryParse(userId, out int customerId))
-            //    {
-            //        orderRequest.CustomerID = customerId;
-            //    }
-            //}
+            if (User.Identity.IsAuthenticated)
+            {
+                string? userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+                if (Guid.TryParse(userId, out Guid customerId))
+                {
+                    orderRequest.CustomerID = customerId;
+                }
+            }
 
             await _orderGetService.AddOrder(orderRequest);
             return RedirectToAction("OrderSuccess");
@@ -57,23 +57,23 @@ namespace HeartsDesireLuxury.Controllers
             return View();
         }
 
-        [Authorize] // Ensure only logged-in users can view order history
+        [Authorize] 
         public async Task<IActionResult> OrderHistory()
         {
             if (!User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Login", "Account"); // or return Unauthorized
+                return RedirectToAction("Login", "Account"); 
             }
 
             string? userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
 
-            if (!int.TryParse(userId, out int customerId))
+            if (!Guid.TryParse(userId, out Guid customerId))
             {
-                return Unauthorized(); // or show error
+                return Unauthorized(); 
             }
 
             var userOrders = await _orderGetService.GetOrdersByCustomerID(customerId);
-            return View(userOrders); // You will create this view next
+            return View(userOrders); 
         }
 
     }

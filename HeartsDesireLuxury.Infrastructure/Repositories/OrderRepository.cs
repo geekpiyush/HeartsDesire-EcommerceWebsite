@@ -18,19 +18,19 @@ namespace HeartsDesireLuxury.Infrastructure.Repositories
             _db = applicationDbContext;
         }
 
-        public Task<List<Orders>> GetOrdersByCustomerId(int customerID)
-        {
-            throw new NotImplementedException();
-        }
-
-        //public async Task<List<Orders>> GetOrdersByCustomerId(int customerID)
+        //public Task<List<Orders>> GetOrdersByCustomerId(Guid customerID)
         //{
-        //    return await _db.Orders
-        //        .Include(o => o.Product)
-        //        .Where(o => o.CustomerID == customerID)
-        //        .OrderByDescending(o => o.OrderDate)
-        //        .ToListAsync();
+        //    throw new NotImplementedException();
         //}
+
+        public async Task<List<Orders>> GetOrdersByCustomerId(Guid customerID)
+        {
+            return await _db.Orders
+                .Include(o => o.Product)
+                .Where(o => o.CustomerID == customerID)
+                .OrderByDescending(o => o.OrderDate)
+                .ToListAsync();
+        }
 
         public async Task InsertOrder(Orders orders)
         {

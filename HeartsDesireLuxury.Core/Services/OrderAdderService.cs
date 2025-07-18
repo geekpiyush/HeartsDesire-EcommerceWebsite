@@ -28,9 +28,9 @@ namespace HeartsDesireLuxury.Core.Services
                 Quantity = orderRequest.Quantity,
                 CustomerName = orderRequest.CustomerName,
                 Email = orderRequest.Email,
-                MobileNumber =  orderRequest.MobileNumber,
+                MobileNumber = orderRequest.MobileNumber,
                 Address = orderRequest.Address,
-                State =     orderRequest.State,
+                State = orderRequest.State,
                 City = orderRequest.City,
                 Pincode = orderRequest.Pincode,
                 OrderDate = DateTime.Now
@@ -39,7 +39,7 @@ namespace HeartsDesireLuxury.Core.Services
             await _orderRepository.InsertOrder(order);
         }
 
-        public async Task<List<Orders>> GetOrdersByCustomerID(int customerID)
+        public async Task<List<Orders>> GetOrdersByCustomerID(Guid customerID)
         {
             return await _orderRepository.GetOrdersByCustomerId(customerID);
         }

@@ -11,6 +11,6 @@ namespace HeartsDesireLuxury.Core.ServiceContracts
     public interface IOrderGetService
     {
         Task AddOrder(OrderRequest orderRequest);
-        Task<List<Orders>> GetOrdersByCustomerID(int customerID);
+        Task<List<Orders>> GetOrdersByCustomerID(Guid customerID);
     }
 }
