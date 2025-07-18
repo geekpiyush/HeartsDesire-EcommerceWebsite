@@ -23,6 +23,13 @@ namespace ServiceContracts.DTO
         [DataType(DataType.PhoneNumber)]
         public string? Phone { get; set; }
 
+        [Required(ErrorMessage ="Country name is required")]
+        public string? Country { get; set; }
+
+        [Required(ErrorMessage ="State name is required")]
+        public string? State { get; set; }
+
+
         [Required(ErrorMessage = "Password name is required")]
         [DataType(DataType.Password)]
         public string? Password { get; set; }

@@ -9,7 +9,7 @@ namespace HeartsDesireLuxury.Core.DTO
     public class OrderRequest
     {
         public int ProductID {  get; set; }
-        public int CustomerID { get; set; }
+        public Guid CustomerID { get; set; }
         public int Quantity { get; set; }
         public string CustomerName { get; set; }
         public string Email { get; set; }

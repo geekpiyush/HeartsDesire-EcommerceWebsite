@@ -11,8 +11,8 @@ namespace Entities
     public class Orders
     {
         [Key]
-        public int OrderID {  get; set; }
-        public int CustomerID { get; set; }
+        public int OrderID { get; set; }
+        public Guid CustomerID { get; set; }
         public int ProductID { get; set; }
         public int Quantity { get; set; }
         public string CustomerName { get; set; }
@@ -25,6 +25,6 @@ namespace Entities
         public DateTime OrderDate { get; set; } = DateTime.Now;
 
         [ForeignKey("ProductID")]
-        public Products? Product {  get; set; }
+        public Products? Product { get; set; }
     }
 }

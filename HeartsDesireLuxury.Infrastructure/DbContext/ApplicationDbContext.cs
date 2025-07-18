@@ -21,6 +21,8 @@ namespace Entities.DB
         public DbSet<Products> Products { get; set; }
         public DbSet<ProductCategories> ProductCategories { get; set; }
 
+        public DbSet<Orders> Orders { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

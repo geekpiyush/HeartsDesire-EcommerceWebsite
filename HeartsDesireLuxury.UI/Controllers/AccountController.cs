@@ -55,7 +55,7 @@ namespace HeartsDesireLuxury.Controllers
                 return View(customerRegister);
             }
 
-            ApplicationUser user = new ApplicationUser() { Email = customerRegister.Email, PhoneNumber = customerRegister.Phone, UserName = customerRegister.Email, CustomerName = customerRegister.CustomerName };
+            ApplicationUser user = new ApplicationUser() { Email = customerRegister.Email, PhoneNumber = customerRegister.Phone, UserName = customerRegister.Email, CustomerName = customerRegister.CustomerName, Country = customerRegister.Country, State = customerRegister.State };
 
             IdentityResult result = await _userManager.CreateAsync(user, customerRegister.Password);
 
