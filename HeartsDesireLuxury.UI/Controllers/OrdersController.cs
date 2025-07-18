@@ -39,14 +39,14 @@ namespace HeartsDesireLuxury.Controllers
                 return View("Orders", product);
             }
 
-            if (User.Identity.IsAuthenticated)
-            {
-                string? userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
-                if (int.TryParse(userId, out int customerId))
-                {
-                    orderRequest.CustomerID = customerId;
-                }
-            }
+            //if (User.Identity.IsAuthenticated)
+            //{
+            //    string? userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            //    if (int.TryParse(userId, out int customerId))
+            //    {
+            //        orderRequest.CustomerID = customerId;
+            //    }
+            //}
 
             await _orderGetService.AddOrder(orderRequest);
             return RedirectToAction("OrderSuccess");
