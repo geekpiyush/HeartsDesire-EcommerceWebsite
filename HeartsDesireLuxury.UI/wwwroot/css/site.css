@@ -15,12 +15,10 @@
 
 body {
     margin-bottom: 60px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Playfair Display', serif;
     height: 100vh; /* Just to enable scrolling */
-    font-family: 'Cormorant Garamond', serif;
     background-color: #fafafa;
     color: #333;
-
 }
 * {
     margin: 0;
