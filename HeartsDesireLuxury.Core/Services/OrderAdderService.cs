@@ -24,6 +24,7 @@ namespace HeartsDesireLuxury.Core.Services
             var order = new Orders
             {
                 ProductID = orderRequest.ProductID,
+                ProductName = orderRequest.ProductName,
                 CustomerID = orderRequest.CustomerID,
                 Quantity = orderRequest.Quantity,
                 CustomerName = orderRequest.CustomerName,
@@ -37,6 +38,12 @@ namespace HeartsDesireLuxury.Core.Services
             };
 
             await _orderRepository.InsertOrder(order);
+        }
+
+        public async Task<List<Orders>> GetAllOrders()
+        {
+
+            return await _orderRepository.GetAllOrders();
         }
 
         public async Task<List<Orders>> GetOrdersByCustomerID(Guid customerID)
