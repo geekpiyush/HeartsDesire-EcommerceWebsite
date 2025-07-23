@@ -10,7 +10,7 @@ using System.Diagnostics;
 
 namespace HeartsDesireLuxury.Controllers
 {
-    [AllowAnonymous]
+    [Authorize]
     public class OrdersController : Controller
     {
         private readonly IProductGetterServices _productServices;

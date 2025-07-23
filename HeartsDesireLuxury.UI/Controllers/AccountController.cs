@@ -1,4 +1,5 @@
-﻿using Entities.IdentityEntity;
+﻿using Entities.Enums;
+using Entities.IdentityEntity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -6,8 +7,8 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using ServiceContracts.DTO;
+using System.Security.Claims;
 using System.Threading.Tasks;
-using Entities.Enums;
 namespace HeartsDesireLuxury.Controllers
 {
     [AllowAnonymous]
