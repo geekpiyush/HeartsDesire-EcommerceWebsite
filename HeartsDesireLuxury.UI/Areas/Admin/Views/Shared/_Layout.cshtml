@@ -68,15 +68,39 @@
         /*     z-index: 1; */
         /* } */
 
-        .dropdown-content{
-            font-size:1.2rem;
+        .dropdown {
+            position: relative;
+            display: inline-block;
         }
 
-        #admin-home-btn button{
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 190px;
+            /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+            padding: 12px 16px;
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+		#admin-home-btn button {
             border:none;
 
         }
+        #admin-home-btn {
+            width:100%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
 
+        #admin-home-btn p{
+            padding-top:16px;
+        }
     </style>
 </head>
 
@@ -93,6 +117,7 @@
             <div id="admin-home-btn">
                 @* <button asp-controller="Home" asp-action="index">Home</button> *@
                 <button asp-controller="Home" asp-action="index">Home</button>
+                <p>Shop with Hearts Desire!</p>
             </div>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -106,14 +131,16 @@
             <div class="left-container">
                 <ul>
                     <li><a asp-controller="Home" asp-action="Index" asp-area="admin"><i class="fa-solid fa-house"></i>Home</a></li>
-                    <li>
-                        <a>
-                            <i class="fa-solid fa-box"></i>Product
-                            <ul id="myDropdown" class="dropdown-content">
-                                <li><a asp-controller="Product" asp-action="AddProduct" asp-area="admin">Add Product</a></li>
-                                <li><a asp-controller="Product" asp-action="AllProduct" asp-area="admin">View Product</a></li>
-                    </ul>    
-                    </a></li>
+                    <li class="dropdown">
+                        <a href="#">
+                            <i class="fa-solid fa-box"></i> <span class="drop-btn">Product</span>
+                        </a>
+                        <ul class="dropdown-content">
+                            <li><a asp-controller="Product" asp-action="AddProduct" asp-area="admin">Add Product</a></li>
+                            <li><a asp-controller="Product" asp-action="AllProduct" asp-area="admin">View Product</a></li>
+                        </ul>
+                    </li>
+
                     <li><a asp-controller="Categories" asp-action="Categories" asp-area="admin"><i class="fa-solid fa-layer-group"></i>Categories</a></li>
                     <li><a asp-controller="Orders" asp-action="Orders" asp-area="admin"><i class="fa-solid fa-cart-shopping"></i>Orders</a></li>
                     <li><a asp-controller="Customers" asp-action="Customers" asp-area="admin"><i class="fa-solid fa-users"></i>Customers</a></li>

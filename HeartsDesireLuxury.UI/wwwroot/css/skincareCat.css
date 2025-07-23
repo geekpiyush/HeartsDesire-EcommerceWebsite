@@ -172,7 +172,9 @@ h1, h2, h3, h4 {
     .add-to-cart:hover {
         background: #444;
     }
-
+    a{
+        text-decoration:none;
+    }
 /* 🔗 View All Button */
 .view-all {
     text-align: center;
