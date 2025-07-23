@@ -1,4 +1,5 @@
-﻿using Entities.IdentityEntity;
+﻿using Entities.Enums;
+using Entities.IdentityEntity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -6,8 +7,8 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using ServiceContracts.DTO;
+using System.Security.Claims;
 using System.Threading.Tasks;
-using Entities.Enums;
 namespace HeartsDesireLuxury.Controllers
 {
     [AllowAnonymous]
@@ -225,6 +226,64 @@ namespace HeartsDesireLuxury.Controllers
             }
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult GoogleLogin(string returnUrl = "/")
+        {
+            var properties = _signInManager.ConfigureExternalAuthenticationProperties("Google", returnUrl);
+            return Challenge(properties, "Google");
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> ExternalLoginCallback(string returnUrl = "/")
+        {
+            var info = await _signInManager.GetExternalLoginInfoAsync();
+            if (info == null)
+            {
+                return RedirectToAction(nameof(Login));
+            }
+
+            var signInResult = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false);
+
+            if (signInResult.Succeeded)
+            {
+                return LocalRedirect(returnUrl);
+            }
+
+            // If the user does not have an account, create one.
+            var email = info.Principal.FindFirstValue(System.Security.Claims.ClaimTypes.Email);
+            var name = info.Principal.FindFirstValue(System.Security.Claims.ClaimTypes.Name);
+
+            if (email != null)
+            {
+                var user = new ApplicationUser
+                {
+                    Email = email,
+                    UserName = email,
+                    CustomerName = name,
+                    EmailConfirmed = true
+                };
+
+                var result = await _userManager.CreateAsync(user);
+                if (result.Succeeded)
+                {
+                    result = await _userManager.AddLoginAsync(user, info);
+                    if (result.Succeeded)
+                    {
+                        await _signInManager.SignInAsync(user, isPersistent: false);
+                        return LocalRedirect(returnUrl);
+                    }
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+            }
+
+            return RedirectToAction("Login");
+        }
 
     }
 }
