@@ -12,5 +12,7 @@ namespace HeartsDesireLuxury.Core.Domain.RepositoryContracts
         Task InsertOrder(Orders orders);
         Task<List<Orders>> GetOrdersByCustomerId(Guid customerID);
 
+        Task<List<Orders>> GetAllOrders();
+
     }
 }

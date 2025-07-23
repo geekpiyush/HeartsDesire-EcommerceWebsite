@@ -1,0 +1,41 @@
+﻿.order-container {
+    max-width: 90%;
+    margin: 120px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.no-orders {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 100px;
+}
+
+table.dataTable tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+table th, table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.product-img {
+    height: 50px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.btn-action {
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    border-radius: 8px;
+}

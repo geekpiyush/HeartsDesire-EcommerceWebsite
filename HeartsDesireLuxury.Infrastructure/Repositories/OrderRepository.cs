@@ -18,10 +18,11 @@ namespace HeartsDesireLuxury.Infrastructure.Repositories
             _db = applicationDbContext;
         }
 
-        //public Task<List<Orders>> GetOrdersByCustomerId(Guid customerID)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public async Task<List<Orders>> GetAllOrders()
+        {
+            return await _db.Orders.Include(o => o.Product).ToListAsync();
+
+        }
 
         public async Task<List<Orders>> GetOrdersByCustomerId(Guid customerID)
         {
