@@ -193,11 +193,13 @@ h1, h2, h3, h4 {
         font-weight: bold;
         margin: 5px 0;
     }
-
-.old-price {
-    text-decoration: line-through;
-    color: #999;
-}
+    .product-info a{
+        text-decoration:none;
+    }
+    .old-price {
+        text-decoration: line-through;
+        color: #999;
+    }
 
 /* 🛒 Add to Cart Button */
 .add-to-cart {
@@ -213,6 +215,7 @@ h1, h2, h3, h4 {
     margin-top: 10px;
 }
 
+
     .add-to-cart:hover {
         background: #444;
     }
@@ -222,8 +225,11 @@ h1, h2, h3, h4 {
     text-align: center;
     margin-top: 30px;
 }
-
-    .view-all button {
+.view-all button{
+    border:none;
+}
+    .view-all button a {
+        text-decoration: none;
         padding: 10px 20px;
         border: 1px solid black;
         background: white;
@@ -235,11 +241,13 @@ h1, h2, h3, h4 {
         width: 250px !important;
     }
 
-        .view-all button:hover {
+        .view-all button a:hover {
             background: black;
             color: white;
         }
-
+        a{
+            text-decoration:none;
+        }
 
 
 
@@ -345,6 +353,9 @@ h1, h2, h3, h4 {
     transition: transform 0.3s, box-shadow 0.3s;
     width: 200px;
     flex-shrink: 0;
+}
+.category-card a{
+    text-decoration:none;
 }
 
     .category-card:hover {

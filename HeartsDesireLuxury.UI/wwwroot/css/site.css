@@ -15,9 +15,8 @@
 
 body {
     margin-bottom: 60px;
-    font-family: 'Poppins', sans-serif;
-    height: 2000px; /* Just to enable scrolling */
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Playfair Display', serif;
+    height: 100vh; /* Just to enable scrolling */
     background-color: #fafafa;
     color: #333;
 }
@@ -73,11 +72,10 @@ body {
     font-size: 16px;
 }
 
-.logo {
+.logo a{
     font-family: 'Cinzel', serif;
     font-weight: 700;
     font-size: 28px;
-
 }
 
 .navbar a:hover {
@@ -140,6 +138,7 @@ body {
     position: relative;
     overflow: hidden;
     display:block;
+    margin-top:30px;
 }
 
 .footer-container {
@@ -307,3 +306,22 @@ body {
         transform: translateY(-10px) rotate(-5deg);
     }
 }
+/*.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 24px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+    .whatsapp-float:hover {
+        transform: scale(1.1);
+        text-decoration: none;
+        color: white;
+    }*/

@@ -42,17 +42,17 @@ textarea {
     height:50px;
 }
 
-button {
-    background-color: #4CAF50;
-    color: white;
+.button {
+    background-color: #45a049;
+    color: #fff;
     font-size: 16px;
     cursor: pointer;
     border: none;
 }
 
-    button:hover {
+/*    button:hover {
         background-color: #45a049;
-    }
+    }*/
 
 input[type="file"] {
     padding: 5px;

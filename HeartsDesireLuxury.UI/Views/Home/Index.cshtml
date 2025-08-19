@@ -4,9 +4,9 @@
 }
 <link href="~/css/HomeStyle.css" rel="stylesheet" asp-append-version="true"/>
 <!-- 📽️ Video Banner -->
- <section class="video-banner"> 
+<section class="video-banner"> 
      <video id="banner-video" autoplay loop muted playsinline class="background-video"> 
-         <source id="video-source" src="~/Videos/bannermodelvideo.mp4" type="video/mp4"> 
+         <source id="video-source" src="~/Videos/Heart’s_Desire_banner_video2.mp4" type="video/mp4"> 
          Your browser does not support the video tag.
      </video>
  </section>
@@ -39,7 +39,7 @@
                         <h3>@product.ProductName</h3>
                         <p class="rating">⭐ 4.7 | (1.2K Reviews)</p>
                         <p class="price">₹@product.ProductSalePrice <span class="old-price">₹@product.ProductPrice</span></p>
-                        <a asp-action="ProductByProductID" asp-controller="Product" asp-route-ProductID="@product.ProductID"><button class="add-to-cart">ADD TO CART</button></a>
+                        <a asp-action="ProductByProductID" asp-controller="Product" asp-route-ProductID="@product.ProductID"><button class="add-to-cart">BUY</button></a>
                     </div>
                 </div>
             }
@@ -67,7 +67,7 @@
              </div>
  </div>
  </div> *@
-<a href="https://example.com" class="banner-link" target="_blank">
+<a asp-controller="Product" asp-action="Luxury" class="banner-link" target="_blank">
     <img src="~/images/banner/new banner HD.png" alt="Banner Image image">
 </a>
 
@@ -78,27 +78,35 @@
       
       <!-- Luxury Perfume -->
       <div class="category-card">
+         <a asp-controller="Product" asp-action="Luxury">
         <img src="/images/luxuey-cat.png" alt="Luxury Perfume" class="category-image">
         <h3 class="category-title">Luxury Perfume</h3>
+        </a>
       </div>
 
       <!-- Man Perfume -->
       <div class="category-card">
+        <a asp-controller="Product" asp-action="Men">
         <img src="/images/man-cat.png" alt="Man Perfume" class="category-image">
         <h3 class="category-title">Man Perfume</h3>
-      </div>
+        </a>
+        </div>
 
       <!-- Woman Perfume -->
       <div class="category-card">
+          <a asp-controller="Product" asp-action="Women">
         <img src="/images/woman-cat.png" alt="Woman Perfume" class="category-image">
         <h3 class="category-title">Woman Perfume</h3>
-      </div>
+                </a>
+            </div>
 
       <!-- Skin Care -->
       <div class="category-card">
+          <a>
         <img src="/images/skincare.png" alt="Skin Care" class="category-image">
         <h3 class="category-title">Skin Care</h3>
-      </div>
+        </a>
+        </div>
 
     </div>
   </div>
@@ -190,7 +198,7 @@
 </div>
 
 @* Meet Founder Code *@
-<section class="founder-section">
+@*<section class="founder-section">
     <div class="container">
         <div class="founder-content">
 
@@ -219,7 +227,7 @@
 
         </div>
     </div>
-</section>
+</section>*@
 
 
 <script>
@@ -242,7 +250,7 @@
         index = (index + step + slides.length) % slides.length;
         updateCarousel();
     }
-
+0
     // Jump to a specific slide
     function jumpToSlide(n) {
         index = n;

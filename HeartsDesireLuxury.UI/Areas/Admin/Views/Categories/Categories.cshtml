@@ -4,9 +4,9 @@
 }
 <link rel="stylesheet" href="~/css/AdminCSS/CategoryStyle.css">
 <h1>Categories</h1>
-<button><a asp-controller="Categories" asp-area="Admin" asp-action="AddCategories"> Add Category</a></button>
+<button class="category-btn"><a asp-controller="Categories" asp-area="Admin" asp-action="AddCategories"> Add Category</a></button>
 <table>
-    <caption>Product Categories</caption>
+    @* <caption>Product Categories</caption> *@
     <thead>
         <tr>
             <th>Product Category ID</th>
@@ -23,7 +23,7 @@
                 <td>@productCategory.CategoryID</td>
                 <td>@productCategory.CategoryName</td>
                 <td><button class="edit">Edit</button></td>
-                <td><button>Delete</button></td>
+                <td><button class="delete-btn">Delete</button></td>
             </tr>
         }
            

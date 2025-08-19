@@ -1,0 +1,85 @@
+﻿@model List<Entities.Orders>
+
+@{
+    ViewBag.Title = "Your Order History";
+}
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css" />
+<link href="~/css/orders/OrderHistory.css" rel="stylesheet" />
+
+
+@if (Model == null || !Model.Any())
+{
+    <div class="order-container">
+
+        <p class="no-orders">You haven’t placed any orders yet.</p>
+
+    </div> 
+}
+else
+{
+    <div class="order-container">
+        <h2>Order History</h2>
+        <table id="userOrders" class="display responsive nowrap table table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th data-priority="1">Image</th>
+                    <th data-priority="2">Product</th>
+                    <th>Quantity</th>
+                    <th>Price (₹)</th>
+                    <th>Total (₹)</th>
+                    <th>Date</th>
+                    <th data-priority="1">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+                {
+                    var total = (order.Product?.ProductSalePrice ?? 0) * order.Quantity;
+                    <tr>
+                        <td>
+                            <img src="@order.Product?.MainImagePath" class="product-img" alt="Product" />
+                        </td>
+                        <td>@order.Product?.ProductName</td>
+                        <td>@order.Quantity</td>
+                        <td>₹@order.Product?.ProductSalePrice?.ToString("F2")</td>
+                        <td>₹@total.ToString("F2")</td>
+                        <td>@order.OrderDate.ToString("dd MMM yyyy")</td>
+                        <td>
+                            <a asp-action="ProductByProductID" asp-controller="Product" asp-route-ProductID="@order.ProductID" class="btn btn-primary btn-sm btn-action">View</a>
+                            <a href="/Orders/DownloadInvoice/@order.OrderID" class="btn btn-outline-secondary btn-sm btn-action">Invoice</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $('#userOrders').DataTable({
+            responsive: true,
+            paging: true,
+            searching: false,
+            info: false,
+            ordering: false,
+            pageLength: 5,
+            language: {
+                emptyTable: "No orders found",
+                paginate: {
+                    previous: "<",
+                    next: ">"
+                }
+            }
+        });
+    });
+</script>
+

@@ -21,6 +21,8 @@ namespace Entities.DB
         public DbSet<Products> Products { get; set; }
         public DbSet<ProductCategories> ProductCategories { get; set; }
 
+        public DbSet<Orders> Orders { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -28,6 +30,7 @@ namespace Entities.DB
             modelBuilder.Entity<Products>().ToTable("Products");
             modelBuilder.Entity<ProductCategories>().ToTable("ProductCategories");
             modelBuilder.Entity<Inventory>().ToTable("Inventory");
+            modelBuilder.Entity<Orders>().ToTable("Orders");
 
 
             //modelBuilder.Entity<List<Inventory>>().HasData(new Entities.() { ProductID = 1001, ProductName = "TestProduct", Description = "Test Description", ProductPrice = 999, ProductSalePrice = 699, Stock = 100, SkuID = "Test100ML", ShortDescription = "TestProduct Short Description" });

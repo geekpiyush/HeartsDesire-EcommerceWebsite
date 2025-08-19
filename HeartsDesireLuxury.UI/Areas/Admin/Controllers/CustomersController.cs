@@ -1,10 +1,12 @@
 ﻿using Entities.IdentityEntity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HeartsDesireLuxury.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class CustomersController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;

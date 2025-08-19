@@ -4,7 +4,7 @@ namespace RepositoryContracts
 {
     public interface IProductRepository
     {
-        Task<Products>AddProduct(Products products);
+        Task<Products> AddProduct(Products products);
         Task<List<Products>> GetAllProducts();
         Task<Products?> GetProductsById(int ProductID);
         Task<Products> UpdateProduct(Products products);

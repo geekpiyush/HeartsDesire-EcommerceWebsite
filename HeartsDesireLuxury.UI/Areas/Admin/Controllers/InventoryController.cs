@@ -1,10 +1,12 @@
 ﻿using HeartsDesireLuxury.Core.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ServiceContracts;
 
 namespace HeartsDesireLuxury.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class InventoryController : Controller
     {
         private readonly IInventoryAdderService _inventoryAdderService; 

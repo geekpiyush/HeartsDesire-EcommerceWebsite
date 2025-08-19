@@ -16,7 +16,7 @@ namespace Repositories
         public async Task<Products> AddProduct(Products products)
         {
             _db.Products.Add(products);
-          await _db.SaveChangesAsync();
+              await _db.SaveChangesAsync();
             return products;
 
         }

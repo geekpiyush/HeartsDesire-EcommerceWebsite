@@ -29,11 +29,12 @@
 
    
 
-        <label for="mainImage">Product Main Image</label>
-        <input type="file" id="mainImage" name="mainImage" accept="image/*" required>
+        <label asp-for="MainImage">Product Main Image</label>
+        <input asp-for="MainImage" type="file" accept="image/*">
 
-        <label for="referenceImages">Product Reference Images</label>
-        <input type="file" id="referenceImages" name="referenceImages[]" accept="image/*" multiple>
+        <label asp-for="ReferenceImages">Product Reference Images</label>
+        <input asp-for="ReferenceImages" type="file" accept="image/*" multiple>
+
 
         <button type="submit">Update</button>
         <div asp-validation-summary="All" style="color:red;">
