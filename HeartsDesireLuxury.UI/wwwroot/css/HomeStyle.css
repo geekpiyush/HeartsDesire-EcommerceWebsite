@@ -117,7 +117,7 @@ h1, h2, h3, h4 {
 
 @media (max-width: 768px) {
     .products-grid {
-        grid-template-columns: repeat(1, 1fr); /* Mobile: 1 card per row */
+        grid-template-columns: repeat(2, 1fr); /* Mobile: 1 card per row */
     }
 }
 
@@ -130,6 +130,9 @@ h1, h2, h3, h4 {
     text-align: center;
     transition: transform 0.3s ease-in-out;
     position: relative;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
     /* width: 70%; */
 }
 
@@ -223,7 +226,7 @@ h1, h2, h3, h4 {
 /* 🔗 View All Button */
 .view-all {
     text-align: center;
-    margin-top: 30px;
+    margin: 50px 0px;
 }
 .view-all button{
     border:none;
@@ -321,6 +324,12 @@ h1, h2, h3, h4 {
     background-size:cover;
     padding:50px 0px;
 }
+
+@media (max-width: 768px) {
+    .banner-link{
+        display:none;
+    }
+}
 /*Categories CSS Style*/
 .category-section {
     padding: 0px 20px;
@@ -376,6 +385,18 @@ h1, h2, h3, h4 {
     padding: 15px 0;
 }
 
+@media (max-width: 768px) {
+    .category-flex {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        /*grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));*/ /* Responsive cards */
+        gap: 10px; /* Space kam karne ke liye */
+    }
+    .category-image {
+        padding:10px;
+    }
+}
+
 /*Two Banner Style code*/
 .banner-image-section {
     display: flex;
@@ -387,7 +408,7 @@ h1, h2, h3, h4 {
 }
 
 .banner-img {
-    flex: 1;
+    flex:1;
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -417,7 +438,7 @@ h1, h2, h3, h4 {
     }
 
     .banner-img img {
-        height: 300px;
+        height: 200px;
     }
 }
 
@@ -580,8 +601,9 @@ h1, h2, h3, h4 {
 /* Responsive */
 @media (max-width: 768px) {
     .combo-grid {
-        flex-direction: column;
-        align-items: center;
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
     }
 }
 
